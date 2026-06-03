@@ -1,0 +1,261 @@
+/*
+  Flashcards — simple responsive styling with light/dark theme.
+*/
+
+:root {
+  --bg: #0b1020;
+  --panel: #111a33;
+  --panel2: #0f1730;
+  --text: #e8ecff;
+  --muted: rgba(232, 236, 255, 0.72);
+  --border: rgba(232, 236, 255, 0.12);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  --primary: #7c5cff;
+  --primaryText: #0b1020;
+
+  --focus: rgba(124, 92, 255, 0.35);
+  --radius: 16px;
+}
+
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --panel2: #ffffff;
+  --text: #141a2a;
+  --muted: rgba(20, 26, 42, 0.65);
+  --border: rgba(20, 26, 42, 0.12);
+  --shadow: 0 18px 50px rgba(17, 24, 39, 0.10);
+
+  --primary: #5b5cff;
+  --primaryText: #ffffff;
+
+  --focus: rgba(91, 92, 255, 0.20);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1000px 600px at 20% 0%, rgba(124, 92, 255, 0.22), transparent 60%),
+              radial-gradient(900px 550px at 85% 5%, rgba(0, 209, 255, 0.14), transparent 55%),
+              var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: color-mix(in oklab, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand__title {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+}
+
+.brand__subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, transparent), color-mix(in oklab, var(--panel2) 92%, transparent));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.search {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.search__label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.search__meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search__nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel2) 86%, transparent);
+  color: var(--text);
+  outline: none;
+}
+
+.input:focus {
+  border-color: color-mix(in oklab, var(--primary) 55%, var(--border));
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 94%, transparent), color-mix(in oklab, var(--panel2) 94%, transparent));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card__top {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+}
+
+.progress {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.hint {
+  font-size: 12px;
+}
+
+.card__body {
+  padding: 18px 16px 4px;
+}
+
+.card__question {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.1px;
+}
+
+.card__answerWrap {
+  margin-top: 14px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0;
+}
+
+.card__answer {
+  font-size: 16px;
+  color: color-mix(in oklab, var(--text) 92%, var(--muted));
+  white-space: pre-wrap;
+}
+
+.card__actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 16px 16px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel2) 86%, transparent);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+  user-select: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+.btn:hover {
+  border-color: color-mix(in oklab, var(--primary) 40%, var(--border));
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--primaryText);
+  border-color: color-mix(in oklab, var(--primary) 65%, black);
+  font-weight: 700;
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.btn__icon {
+  margin-right: 6px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 8px 4px 24px;
+}
+
+@media (max-width: 640px) {
+  .card__actions {
+    flex-wrap: wrap;
+  }
+  .spacer {
+    display: none;
+  }
+  .btn {
+    flex: 1;
+  }
+  #randomBtn {
+    flex: 1 1 100%;
+  }
+}

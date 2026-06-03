@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flashcards — InfoSec & Ethical Hacking</title>
+    <meta name="description" content="A simple flashcards website for information security and ethical hacking." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__title">Flashcards</div>
+        <div class="brand__subtitle">InfoSec & Ethical Hacking</div>
+      </div>
+
+      <div class="topbar__right">
+        <button id="themeToggle" class="btn btn--ghost" type="button" aria-label="Toggle theme">
+          <span class="btn__icon" aria-hidden="true">◐</span>
+          <span class="btn__text">Theme</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel" aria-label="Search">
+        <div class="search">
+          <label class="search__label" for="searchInput">Search</label>
+          <input id="searchInput" class="input" type="search" placeholder="Type a keyword (searches question + answer)…" autocomplete="off" />
+
+          <div class="search__meta">
+            <div id="searchStatus" class="muted" aria-live="polite">No search</div>
+            <div class="search__nav">
+              <button id="prevMatch" class="btn btn--ghost" type="button" disabled>Prev match</button>
+              <button id="nextMatch" class="btn btn--ghost" type="button" disabled>Next match</button>
+              <button id="clearSearch" class="btn btn--ghost" type="button" disabled>Clear</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Flashcard">
+        <div class="card__top">
+          <div id="progress" class="progress" aria-live="polite">1 / 26</div>
+          <div class="hint muted">←/→: prev/next • Space: show/hide • R: random</div>
+        </div>
+
+        <div class="card__body">
+          <h1 id="question" class="card__question">Question</h1>
+
+          <div id="answerWrap" class="card__answerWrap" hidden>
+            <div class="divider" role="separator"></div>
+            <div id="answer" class="card__answer">Answer</div>
+          </div>
+        </div>
+
+        <div class="card__actions" aria-label="Actions">
+          <button id="prevBtn" class="btn" type="button">Previous</button>
+          <button id="toggleAnswerBtn" class="btn btn--primary" type="button">Show Answer</button>
+          <button id="nextBtn" class="btn" type="button">Next</button>
+          <span class="spacer"></span>
+          <button id="randomBtn" class="btn btn--ghost" type="button">Random</button>
+        </div>
+      </section>
+
+      <footer class="footer muted">
+        <div>Built with plain HTML/CSS/JS. No build step.</div>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
